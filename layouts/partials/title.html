@@ -2,7 +2,14 @@
 	<!-- Homepage -->
 	{{- if eq .Kind "home" -}}
 	<h1>{{ .Site.Title }}</h1>
-	<h5>{{- with .Site.Params.Tagline -}}{{.}}{{- end -}}</h5>
+		<!-- Temp formatting. Adding ability to make tag hyperlink by setting .Site.Params.TaglineHref variable  -->
+		{{if .Site.Params.Taglinehref | default false }}
+			<!-- inline css to make tagline hyperlink more subtle -->
+			<h5><a href="{{ .Site.Params.TaglineHref }}" style="color:#898989">{{ .Site.Params.Tagline }}</a></h5>
+		{{ else }}
+			<h5>{{- with .Site.Params.Tagline -}}{{.}}{{- end -}}</h5>
+		{{ end }}
+
 	<!-- Section List -->
 	{{- else if ( or ( eq .Kind "section") ( eq .Kind "taxonomyTerm" ) ) -}}
 	<h1>{{ .Title }}</h1>
