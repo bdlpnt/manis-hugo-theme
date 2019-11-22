@@ -358,7 +358,7 @@ hr {
   margin-top: 2rem;
   margin-bottom: 1rem;
   margin-left:0;
-  width: 24rem;
+  width: 27rem;
   border-top: 2px solid {{ .Site.Params.ColorTheme }};
 }
 
